@@ -1,2 +1,3 @@
-# homebrew-wooga
-osx homebrew recipes for wooga 
+# homebrew-tools
+
+Homebrew recipes from Wooga
