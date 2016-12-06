@@ -6,6 +6,7 @@ class Wooget < Formula
 
   depends_on "mono" => :run
   depends_on "paket" => :run
+  depends_on "curl" => :build
 
   def install
     ENV["GEM_HOME"] = libexec
