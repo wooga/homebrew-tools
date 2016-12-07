@@ -2,7 +2,7 @@ class Wooget < Formula
   desc "nuget package cli for unity3d"
   homepage "https://github.com/wooga/wooget"
   url "https://github.com/wooga/wooget/archive/wooga_wooget-2.1.0.tar.gz"
-  sha256 "b78ccacd2d35e1a072555c4da92c2b3b3fcc86292b6aa9d7dd647624db79da6a"
+  sha256 "f4cce484129caca3b425f7c0c17d23ebcb7f5b61cf10bfd78ae75181024b696a"
 
   depends_on "mono" => :run
   depends_on "paket" => :run
