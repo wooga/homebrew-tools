@@ -17,7 +17,7 @@ class Wooget < Formula
   end
 
   test do
-    system "#{bin}/wooget"
+    system "#{bin}/wooget", "--version"
   end
 end
 
