@@ -6,7 +6,7 @@ class WoogetTestingFramework < Formula
 
   depends_on "homebrew/fuse/ifuse" => :run
   depends_on :osxfuse => :run
-
+  
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "wtf.gemspec"
