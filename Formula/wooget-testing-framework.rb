@@ -6,11 +6,11 @@ class WoogetTestingFramework < Formula
 
   depends_on "homebrew/fuse/ifuse" => :run
   depends_on :osxfuse => :run
-  
+
   def install
     ENV["GEM_HOME"] = libexec
     system "gem", "build", "wtf.gemspec"
-    system "gem", "install", "wooga_wtf-#{version}.gem"
+    system "gem", "install", "-n", ".", "wooga_wtf-#{version}.gem"
 
     bin.install libexec/"bin/wtf"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
