@@ -9,7 +9,7 @@ class WoogetTestingFramework < Formula
 
   def install
     ENV["GEM_HOME"] = libexec
-    system "gem", "build", "wooget.gemspec"
+    system "gem", "build", "wtf.gemspec"
     system "gem", "install", "wooga_wtf-#{version}.gem"
 
     bin.install libexec/"bin/wtf"
