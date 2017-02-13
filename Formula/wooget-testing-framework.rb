@@ -5,7 +5,7 @@ class WoogetTestingFramework < Formula
   
   devel do
     url "https://github.com/wooga/wtf/archive/wooga_wtf-0.2.5.tar.gz"
-    sha256 "563000b29f3bced58c46082e7b280289da56a3f2ac2a88a1e1a3e0a28bd23516"
+    sha256 "33018a81f3d3fb234c04276b1f856b932382563f395a9a5366b8ef0fc7b28427"
     version "0.2.5"
   end
 
