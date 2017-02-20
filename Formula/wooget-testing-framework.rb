@@ -1,12 +1,12 @@
 class WoogetTestingFramework < Formula
   desc "Make testing of wooget packages easier"
   homepage "https://github.com/wooga/wtf"
-  head "https://github.com/wooga/wtf.git"
   
-  devel do
-    url "https://github.com/wooga/wtf/archive/wooga_wtf-0.2.5.tar.gz"
-    sha256 "33018a81f3d3fb234c04276b1f856b932382563f395a9a5366b8ef0fc7b28427"
-    version "0.2.5"
+  head "https://github.com/wooga/wtf.git", :branch => "homebrew_publish"
+
+  stable do
+    url "https://github.com/wooga/wtf/archive/0.3.0.tar.gz"
+    sha256 "8283bb4059f87daec474620d53427e8d296a09af48a5cf5c45907e47ad489729"
   end
 
   depends_on "homebrew/fuse/ifuse" => :optional
@@ -175,15 +175,15 @@ class WoogetTestingFramework < Formula
   def install
     ENV["GEM_HOME"] = libexec/"vendor"
     
+    inreplace (buildpath/"lib/wtf/version.rb"), /"([\da-z\.]+)"/, '"\1-HEAD"' if build.head?
+
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document"
     end
     
-    version_code = (build.head?) ? "*" : version
-
     system "gem", "build", "wtf.gemspec"
-    system "gem", "install", "wooga_wtf-#{version}.gem"
+    system "gem", "install", Dir["wooga_wtf-*.gem"].first
 
     bin.install libexec/"vendor/bin/wtf"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
