@@ -9,9 +9,9 @@ class WoogetTestingFramework < Formula
     sha256 "8283bb4059f87daec474620d53427e8d296a09af48a5cf5c45907e47ad489729"
   end
 
-  depends_on "homebrew/fuse/ifuse" => :optional
-  depends_on :osxfuse => :optional
-
+  depends_on 'Caskroom/cask/unity' => :optional
+  depends_on 'Caskroom/cask/unity-android-support-for-editor' => :optional
+  
   resource "CFPropertyList" do
     url "https://rubygems.org/gems/CFPropertyList-2.2.8.gem"
     sha256 "b693d9b4e6609c9dcdb651d0d65a3bdb54c04cdc16291b4272a86f48e51f57b7"
@@ -186,6 +186,7 @@ class WoogetTestingFramework < Formula
     system "gem", "install", Dir["wooga_wtf-*.gem"].first
 
     bin.install libexec/"vendor/bin/wtf"
+
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
   end
 
