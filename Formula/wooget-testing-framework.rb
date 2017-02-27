@@ -9,6 +9,7 @@ class WoogetTestingFramework < Formula
     sha256 "8283bb4059f87daec474620d53427e8d296a09af48a5cf5c45907e47ad489729"
   end
 
+  depends_on 'wooga/tools/unity-version-manager' => :runtime
   depends_on 'Caskroom/cask/unity' => :optional
   depends_on 'Caskroom/cask/unity-android-support-for-editor' => :optional
   
