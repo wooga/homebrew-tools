@@ -5,8 +5,8 @@ class WoogetTestingFramework < Formula
   head "https://github.com/wooga/wtf.git", :branch => "homebrew_publish"
 
   stable do
-    url "https://github.com/wooga/wtf/archive/0.3.1.tar.gz"
-    sha256 "90574cb04cd7368fb71ae3e2077631e7820d5d40270c602659ed4b36f91c5ddb"
+    url "https://github.com/wooga/wtf/archive/0.3.2.tar.gz"
+    sha256 "8fb6697997ff30340fda2be4ce8378b232668901161419a4a9b275ef29746653"
   end
 
   depends_on 'wooga/tools/unity-version-manager' => :run
