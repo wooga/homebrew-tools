@@ -174,6 +174,11 @@ class WoogetTestingFramework < Formula
     sha256 "479b022de9a9aca81ef755d183cca311cf1210990ece75f6544a5b356e6f3478"
   end
 
+  resource "nokogiri" do
+    url "https://rubygems.org/downloads/nokogiri-1.6.8.1-x86-mingw32.gem"
+    sha256 "c918a99d2e24a3cbd9f4faad87b8ad46084da184a0f65e1d0e9cd7d7dc4fd7a7"
+  end
+
   def install
     ENV["GEM_HOME"] = libexec/"vendor"
     
