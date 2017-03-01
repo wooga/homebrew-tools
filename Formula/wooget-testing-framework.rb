@@ -184,6 +184,8 @@ class WoogetTestingFramework < Formula
       system "gem", "install", r.cached_download, "--no-document"
     end
     
+    system "gem", "install", "nokogiri"
+
     system "gem", "build", "wtf.gemspec"
     system "gem", "install", Dir["wooga_wtf-*.gem"].first
 
