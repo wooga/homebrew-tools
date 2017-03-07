@@ -1,8 +1,13 @@
 class Wooget < Formula
   desc "nuget package cli for unity3d"
   homepage "https://github.com/wooga/wooget"
-  url "https://github.com/wooga/wooget/archive/wooga_wooget-2.1.2.tar.gz"
-  sha256 "dc40e2aa96832825253b86bf4deeaefae6a32783bc3154d9acd0b255ab889b11"
+
+  head 'https://github.com/wooga/wooget.git', :branch => "homebrew_publish"
+
+  stable do
+    url "https://github.com/wooga/wooget/archive/wooga_wooget-2.1.3.tar.gz"
+    sha256 "83929d23fd25aaae8f46d29c5e89b941f61eebc67e8531ebab2fd58ccd4d66c0"
+  end
 
   depends_on "mono" => :run
   depends_on "paket" => :run
@@ -143,17 +148,18 @@ class Wooget < Formula
   end
 
   def install
+
     ENV["GEM_HOME"] = libexec/"vendor"
     
+    inreplace (buildpath/"lib/wooget/version.rb"), /"([\da-z\.]+)"/, '"\1-HEAD"' if build.head?
+
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document"
     end
     
-    version_code = (build.head?) ? "*" : version
-
     system "gem", "build", "wooget.gemspec"
-    system "gem", "install", "wooga_wooget-#{version}.gem"
+    system "gem", "install", Dir["wooga_wooget-*.gem"].first
 
     bin.install libexec/"vendor/bin/wooget"
     bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
