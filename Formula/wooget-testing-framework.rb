@@ -1,7 +1,7 @@
 class WoogetTestingFramework < Formula
   desc "Make testing of wooget packages easier"
   homepage "https://github.com/wooga/wtf"
-  
+
   head "https://github.com/wooga/wtf.git", :branch => "homebrew_publish"
 
   stable do
@@ -13,7 +13,7 @@ class WoogetTestingFramework < Formula
   depends_on "mono" => :run
   depends_on 'Caskroom/cask/unity' => :optional
   depends_on 'Caskroom/cask/unity-android-support-for-editor' => :optional
-  
+
   resource "CFPropertyList" do
     url "https://rubygems.org/gems/CFPropertyList-2.2.8.gem"
     sha256 "b693d9b4e6609c9dcdb651d0d65a3bdb54c04cdc16291b4272a86f48e51f57b7"
@@ -170,8 +170,8 @@ class WoogetTestingFramework < Formula
   end
 
   resource "wooga_wooget" do
-    url "https://rubygems.org/gems/wooga_wooget-2.4.1.gem"
-    sha256 "174945f0503b37751ab12bb6d750f6d29fa3a6547dd0d77b6ec7e26221a68860"
+    url "https://rubygems.org/gems/wooga_wooget-2.5.2.gem"
+    sha256 "4bdf4427cbf16115db46c3e050ba9227c8942cc6d2d58ff810aed27b33ddb563"
   end
 
   resource "nokogiri" do
@@ -181,14 +181,14 @@ class WoogetTestingFramework < Formula
 
   def install
     ENV["GEM_HOME"] = libexec/"vendor"
-    
+
     inreplace (buildpath/"lib/wtf/version.rb"), /"([\da-z\.]+)"/, '"\1-HEAD"' if build.head?
 
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document"
     end
-    
+
     system "gem", "build", "wtf.gemspec"
     system "gem", "install", Dir["wooga_wtf-*.gem"].first
 

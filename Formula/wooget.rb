@@ -5,8 +5,8 @@ class Wooget < Formula
   head 'https://github.com/wooga/wooget.git', :branch => "homebrew_publish"
 
   stable do
-    url "https://github.com/wooga/wooget/archive/wooga_wooget-2.5.1.tar.gz"
-    sha256 "553deae034b38aa3ca3586f574600ffeca7e5542f5455d9c15dd5f0c4779ef0d"
+    url "https://github.com/wooga/wooget/archive/v2.5.2.tar.gz"
+    sha256 "bff939ce1b2eb47df4606f12ab50d13a3c329af2eed0e203228287fedcc5a044"
   end
 
   depends_on "mono" => :run
@@ -150,14 +150,14 @@ class Wooget < Formula
   def install
 
     ENV["GEM_HOME"] = libexec/"vendor"
-    
+
     inreplace (buildpath/"lib/wooget/version.rb"), /"([\da-z\.]+)"/, '"\1-HEAD"' if build.head?
 
     resources.each do |r|
       r.verify_download_integrity(r.fetch)
       system "gem", "install", r.cached_download, "--no-document"
     end
-    
+
     system "gem", "build", "wooget.gemspec"
     system "gem", "install", Dir["wooga_wooget-*.gem"].first
 
@@ -169,4 +169,3 @@ class Wooget < Formula
     system "#{bin}/wooget", "--version"
   end
 end
-
