@@ -5,8 +5,8 @@ class Wooget < Formula
   head 'https://github.com/wooga/wooget.git', :branch => "homebrew_publish"
 
   stable do
-    url "https://github.com/wooga/wooget/archive/v2.5.2.tar.gz"
-    sha256 "bff939ce1b2eb47df4606f12ab50d13a3c329af2eed0e203228287fedcc5a044"
+    url "https://github.com/wooga/wooget/archive/v2.5.3.tar.gz  "
+    sha256 "5ea9529cf7da117a495fc1eea2a8a85fab6fe7d8161265a56878f29c745366aa"
   end
 
   depends_on "mono" => :run

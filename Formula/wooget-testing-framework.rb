@@ -5,8 +5,8 @@ class WoogetTestingFramework < Formula
   head "https://github.com/wooga/wtf.git", :branch => "homebrew_publish"
 
   stable do
-    url "https://github.com/wooga/wtf/archive/wooga_wtf-0.5.1.gem.tar.gz"
-    sha256 "b9ef2ba7a664d0703a47268186036806ef8bbb99065665197575dbd5acf7137d"
+    url "https://github.com/wooga/wtf/archive/wooga_wtf-0.5.2.gem.tar.gz"
+    sha256 "e7f90bd6427d3dbd7611405e52c51c50e64f9cdf177c9c20d5bf66fe329fa83e"
   end
 
   depends_on 'wooga/tools/unity-version-manager' => :run
@@ -170,8 +170,8 @@ class WoogetTestingFramework < Formula
   end
 
   resource "wooga_wooget" do
-    url "https://rubygems.org/gems/wooga_wooget-2.5.2.gem"
-    sha256 "4bdf4427cbf16115db46c3e050ba9227c8942cc6d2d58ff810aed27b33ddb563"
+    url "https://rubygems.org/gems/wooga_wooget-2.5.3.gem"
+    sha256 "79d6df770f129b25239d2cd714d7f49ce2eb72c63ac88fb6c988bc4ae24911c1"
   end
 
   resource "nokogiri" do
