@@ -9,6 +9,8 @@ __      _____   ___ | |_ ___   ___ | |___
 </code>
 </pre>
 
+[![Build Status](https://travis-ci.org/wooga/homebrew-tools.svg?branch=master)](https://travis-ci.org/wooga/homebrew-tools)
+
 ---
 
 This repository host the Homebrew wooga tools tap.
