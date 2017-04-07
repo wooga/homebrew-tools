@@ -8,6 +8,11 @@ class UnityVersionManager < Formula
     sha256 "288d88a13e801f3fa71491381c8933b81f20ca56efe769b4ffcfcb972dc0404b"
   end
 
+  resource "activesupport" do
+    url "https://rubygems.org/gems/activesupport-4.2.8.gem"
+    sha256 "111ac36c5b3861a3546eeff5b972ae5170e8861c3ea8c035cd851627da6f2b72"
+  end
+
   resource "tzinfo" do
     url "https://rubygems.org/gems/tzinfo-1.2.3.gem"
     sha256 "9469862963cf5e8f12bb7d1cf89e681ebfee417537f6835b2e471c7c260d2817"
