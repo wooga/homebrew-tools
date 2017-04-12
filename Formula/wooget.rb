@@ -2,11 +2,11 @@ class Wooget < Formula
   desc "nuget package cli for unity3d"
   homepage "https://github.com/wooga/wooget"
 
-  head 'https://github.com/wooga/wooget.git', :branch => "homebrew_publish"
+  head 'https://github.com/wooga/wooget.git'
 
   stable do
-    url "https://github.com/wooga/wooget/archive/wooga_wooget-2.6.0.tar.gz"
-    sha256 "4224bc965c6a58db80a0817b183d4a048610becdf7389d78b43032af5622f6bb"
+    url "https://github.com/wooga/wooget/archive/wooga_wooget-2.6.2.tar.gz"
+    sha256 "b0edf8b634ed0841fbea69e9df8071a227b4c18c6ace35416799d5d044a9c884"
   end
 
   depends_on "mono" => :run
