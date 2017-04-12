@@ -1,5 +1,5 @@
 class InstallUnity < Formula
-  desc "Script to install Unity 3D versions from the command line on OS X"
+  desc "Script to install Unity 3D versions from the command-line on OS X"
   homepage "https://github.com/sttz/install-unity"
 
   head "https://github.com/sttz/install-unity.git"
