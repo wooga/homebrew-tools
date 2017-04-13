@@ -4,8 +4,8 @@ class UnityVersionManager < Formula
   head "https://github.com/wooga/unity-version-manager.git"
   
   stable do
-    url "https://github.com/wooga/unity-version-manager/archive/wooga_uvm-0.3.1.tar.gz"
-    sha256 "288d88a13e801f3fa71491381c8933b81f20ca56efe769b4ffcfcb972dc0404b"
+    url "https://github.com/wooga/unity-version-manager/archive/0.3.2.tar.gz"
+    sha256 "15f3281bb163bb184f960b7afa98bf048da13078560052f46643964c549e9885"
   end
 
   resource "activesupport" do
