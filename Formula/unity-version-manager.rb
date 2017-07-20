@@ -8,6 +8,11 @@ class UnityVersionManager < Formula
     sha256 "fdc40e9888c5600b877d79b32ebc3efff1914949edf8b0419ae4555c36fb6e04"
   end
 
+  devel do
+    url "https://github.com/wooga/unity-version-manager/archive/1.2.0-devel.tar.gz"
+    sha256 "a3eb7a07c53c7e052c77622589b46095337071ca22ab1b33a2bdd7394c841aa9"
+  end
+
   resource "docopt" do
     url "https://rubygems.org/gems/docopt-0.5.0.gem"
     sha256 "d7e793dc81e68902aae1ed6120550460b12e1fa911da131b4fd482b40e9b084b"
