@@ -9,8 +9,9 @@ class UnityVersionManager < Formula
   end
 
   devel do
-    url "https://github.com/wooga/unity-version-manager/archive/1.2.0-devel.tar.gz"
-    sha256 "a3eb7a07c53c7e052c77622589b46095337071ca22ab1b33a2bdd7394c841aa9"
+    version "1.2.0"
+    url "https://github.com/wooga/unity-version-manager/archive/1.2.0-devel2.zip"
+    sha256 "971f1b950e16713c413877b6cd2f4a280d6e6852a39fab69f2f14054a024d05d"
   end
 
   resource "docopt" do
