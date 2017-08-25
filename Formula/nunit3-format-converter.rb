@@ -1,4 +1,4 @@
-class InstallUnity < Formula
+class Nunit3FormatConverter < Formula
   desc "Python Script to convert NUnit3 report xml files to NUnit2 format"
   homepage "https://github.com/wooga/NUnit3-to-NUnit2-Format-Converter"
 
