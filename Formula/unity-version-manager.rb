@@ -5,7 +5,7 @@ class UnityVersionManager < Formula
 
   stable do
     url "https://github.com/wooga/unity-version-manager/archive/1.3.0.tar.gz"
-    sha256 "fdc40e9888c5600b877d79b32ebc3efff1914949edf8b0419ae4555c36fb6e04"
+    sha256 "4c6caef94fb97cdb8f913646fa3c190c4fb8c07f8490e4ffad9aa68ca4c58e0a"
   end
 
   resource "docopt" do
