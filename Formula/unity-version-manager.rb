@@ -2,16 +2,10 @@ class UnityVersionManager < Formula
   desc "Tool that just manipulates a link to the current unity version"
   homepage "https://github.com/wooga/unity-version-manager"
   head "https://github.com/wooga/unity-version-manager.git"
-  
-  stable do
-    url "https://github.com/wooga/unity-version-manager/archive/1.1.0.tar.gz"
-    sha256 "fdc40e9888c5600b877d79b32ebc3efff1914949edf8b0419ae4555c36fb6e04"
-  end
 
-  devel do
-    version "1.2.0"
-    url "https://github.com/wooga/unity-version-manager/archive/1.2.0-devel2.zip"
-    sha256 "971f1b950e16713c413877b6cd2f4a280d6e6852a39fab69f2f14054a024d05d"
+  stable do
+    url "https://github.com/wooga/unity-version-manager/archive/1.3.0.tar.gz"
+    sha256 "fdc40e9888c5600b877d79b32ebc3efff1914949edf8b0419ae4555c36fb6e04"
   end
 
   resource "docopt" do
