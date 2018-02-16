@@ -4,8 +4,8 @@ class Grlm < Formula
   head "https://github.com/Larusso/github-rate-limit-monitor.git"
 
   stable do
-    url "https://github.com/Larusso/github-rate-limit-monitor/archive/v1.0.0.tar.gz"
-    sha256 "f064aff6e9f28dd0e4543a44a88b6f8387a5da28cf5cd93e32396988f175de23"
+    url "https://github.com/Larusso/github-rate-limit-monitor/archive/v1.0.1.tar.gz"
+    sha256 "afe97287cd393a97388afc2f8f40ba319074510c5d0582fcb68544b51fece6aa"
   end
 
   resource "octokit" do
