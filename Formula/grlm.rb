@@ -14,13 +14,13 @@ class Grlm < Formula
   end
 
   resource "docopt" do
-    url "https://rubygems.org/gems/docopt-0.5.0.gem"
-    sha256 "d7e793dc81e68902aae1ed6120550460b12e1fa911da131b4fd482b40e9b084b"
+    url "https://rubygems.org/gems/docopt-0.6.1.gem"
+    sha256 "73f837ed376d015971712c17f7aafa021998b964b77d52997dcaff79d6727467"
   end
 
   resource "ruby-progressbar" do
-    url "https://rubygems.org/gems/ruby-progressbar-1.8.1.gem"
-    sha256 "95ded755295440de814704970d7ccaf3cb259854534f03a03a6d05918f3eece3"
+    url "https://rubygems.org/gems/ruby-progressbar-1.9.0.gem"
+    sha256 "d32d1b046400e58007e7043e3b07c9e2c32a248964a55afc780516b7630ff0c5"
   end
 
   def install
