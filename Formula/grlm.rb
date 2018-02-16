@@ -9,8 +9,8 @@ class Grlm < Formula
   end
 
   resource "octokit" do
-    url "https://rubygems.org/gems/octokit-4.8.0.gem"
-    sha256 "af056933e09c0e5fb2648c5837c4fb4a9e255e88448c2595b39cf55bb73ee7c2"
+    url "https://rubygems.org/gems/octokit-4.3.0.gem"
+    sha256 "d71ed1ec090ee60d3ae79095b15f4055f46361fcdad3f5f3c87b800f263b04c3"
   end
 
   resource "docopt" do
