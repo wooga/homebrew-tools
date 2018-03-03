@@ -1,48 +1,16 @@
 class Grlm < Formula
   desc "Monitor github rate limit of a user "
   homepage "https://github.com/Larusso/github-rate-limit-monitor"
+  url "https://github.com/Larusso/github-rate-limit-monitor/archive/v1.1.0.tar.gz"
+  sha256 "51a726e9f644be9d5759099cdb48a81627df4fa57916bfeb2c45a9d928eb836a"
   head "https://github.com/Larusso/github-rate-limit-monitor.git"
 
-  stable do
-    url "https://github.com/Larusso/github-rate-limit-monitor/archive/v1.0.1.tar.gz"
-    sha256 "afe97287cd393a97388afc2f8f40ba319074510c5d0582fcb68544b51fece6aa"
-  end
-
-  resource "octokit" do
-    url "https://rubygems.org/gems/octokit-4.3.0.gem"
-    sha256 "d71ed1ec090ee60d3ae79095b15f4055f46361fcdad3f5f3c87b800f263b04c3"
-  end
-
-  resource "docopt" do
-    url "https://rubygems.org/gems/docopt-0.6.1.gem"
-    sha256 "73f837ed376d015971712c17f7aafa021998b964b77d52997dcaff79d6727467"
-  end
-
-  resource "ruby-progressbar" do
-    url "https://rubygems.org/gems/ruby-progressbar-1.9.0.gem"
-    sha256 "d32d1b046400e58007e7043e3b07c9e2c32a248964a55afc780516b7630ff0c5"
-  end
+  depends_on "cmake" => :build
+  depends_on "rust" => :build
 
   def install
-    ENV["GEM_HOME"] = libexec/"vendor"
-
-    inreplace (buildpath/"lib/grlm/version.rb"), /"([\da-z\.]+)"/, '"\1-HEAD"' if build.head?
-    inreplace (buildpath/"grlm.gemspec"), '`git ls-files -z`.split("\x0")', 'Dir["{**/}{.*,*}"]'
-
-    resources.each do |r|
-      r.verify_download_integrity(r.fetch)
-      system "gem", "install", r.cached_download, "--no-document"
-    end
-
-    system "gem", "build", "grlm.gemspec"
-    system "gem", "install", Dir["grlm-*.gem"].first
-
-    bin.install libexec/"vendor/bin/grlm"
-
-    bin.env_script_all_files(libexec/"bin", :GEM_HOME => ENV["GEM_HOME"])
-  end
-
-  test do
-    system "#{bin}/grlm"
+    args = ["PREFIX=#{prefix}"]
+    bin.mkpath
+    system "make", "install", *args
   end
 end
