@@ -9,8 +9,8 @@ class Wooget < Formula
     sha256 "b0edf8b634ed0841fbea69e9df8071a227b4c18c6ace35416799d5d044a9c884"
   end
 
-  depends_on formular: 'mono'
-  depends_on formular: 'paket'
+  depends_on formula: 'mono'
+  depends_on formula: 'paket'
 
   resource "activesupport" do
     url "https://rubygems.org/gems/activesupport-4.2.7.1.gem"
