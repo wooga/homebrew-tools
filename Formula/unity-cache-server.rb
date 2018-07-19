@@ -1,22 +1,29 @@
 class UnityCacheServer < Formula
   desc "unity cache server"
   homepage "https://unity.com"
-  version "2017.2.0f3"
+  version "6.0.2"
+  keg_only "service only"
 
   stable do
-    url "https://netstorage.unity3d.com/unity/46dda1414e51/CacheServer-2017.2.0f3.zip"
-    sha256 "7f245500f106ce7e354bebaa2fc8c5906c11716696daf0b16482becd3d5ef155"
+    url "https://github.com/Unity-Technologies/unity-cache-server/archive/v6.0.2.tar.gz"
+    sha256 "71476cd26fab1d73d86159f555231ce5cf2faedf1c6f2990d0cec568201f7025"
   end
+
+  depends_on 'node'
+  depends_on 'unity-cache-server-cleanup'
+
+  plist_options :startup => true
 
   def install
-    bin.install Dir["nodejs/osx/bin/*"]
-    include.install Dir["nodejs/osx/include/*"]
-    lib.install Dir["nodejs/osx/lib/*"]
-    share.install Dir["nodejs/osx/share/*"]
-    prefix.install "CacheServer.js", "LegacyCacheServer.js", "main.js"
-  end
 
-  plist_options :manual => "unity-cache-server"
+    mkdir_p(etc/"#{name}/config")
+    mkdir_p(var/"log/#{name}")
+    mkdir_p(var/"cache/#{name}")
+
+    lib.install Dir["lib/*"]
+    cp Dir["config/*"], etc/"#{name}/config"
+    prefix.install "main.js"
+  end
 
   def plist; <<~EOS
     <?xml version="1.0" encoding="UTF-8"?>
@@ -27,10 +34,11 @@ class UnityCacheServer < Formula
         <string>#{plist_name}</string>
         <key>ProgramArguments</key>
         <array>
-          <string>#{bin}/node</string>
+          <string>node</string>
           <string>#{prefix}/main.js</string>
-          <string>--path #{info}/cache</string>
-          <string>--nolegacy</string>
+          <string>--cache-module cache_fs</string>
+          <string>--cache-path #{var}/cache/#{name}</string>
+          <string>--NODE_CONFIG_DIR #{etc}/#{name}/config</string>
         </array>
 
         <key>RunAtLoad</key>
@@ -40,10 +48,10 @@ class UnityCacheServer < Formula
         <true/>
 
         <key>StandardOutPath</key>
-        <string>#{info}/logs/#{plist_name}.stdout</string>
+        <string>#{var}/log/#{name}/stdout.log</string>
 
         <key>StandardErrorPath</key>
-        <string>#{info}/logs/#{plist_name}.stderr</string>
+        <string>#{var}/log/#{name}/error.log</string>
       </dict>
     </plist>
   EOS
