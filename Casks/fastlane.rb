@@ -24,6 +24,6 @@ cask 'fastlane' do
 
   preflight do
     system_command "sed", args: ['-i', '', "s/{{IS_INSTALLED_VIA_HOMEBREW}}/$INSTALLED_VIA_HOMEBREW/g", "#{staged_path}/fastlane_lib/bundle/bin/bundle-env"]
-    system_command "#{staged_path}/fastlane_lib/fastlane", args: "update_fastlane"
+    system_command "#{staged_path}/fastlane_lib/fastlane", args: ["update_fastlane"]
   end
 end
