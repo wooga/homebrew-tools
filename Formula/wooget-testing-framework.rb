@@ -9,10 +9,8 @@ class WoogetTestingFramework < Formula
     sha256 "08aaef5ece71287ed81170c3018ff6cf92c94c2d2dc1d1d821638cdb1aa12e9e"
   end
 
-  depends_on 'wooga/tools/unity-version-manager' => :run
-  depends_on "mono" => :run
-  depends_on 'Caskroom/cask/unity' => :optional
-  depends_on 'Caskroom/cask/unity-android-support-for-editor' => :optional
+  depends_on formula: 'wooga/tools/unity-version-manager'
+  depends_on formula: 'mono'
 
   resource "CFPropertyList" do
     url "https://rubygems.org/gems/CFPropertyList-2.2.8.gem"
