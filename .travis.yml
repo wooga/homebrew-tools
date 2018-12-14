@@ -27,9 +27,10 @@ before_install:
 - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
 - ulimit -n 1024
 script:
-- brew test-bot
-after_success:
 - brew tap davidchall/test-bot
+- brew test-bot --ci-auto
+after_success:
+
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
   brew update; brew test-bot --ci-upload --git-name=manfred.endres --git-email=manfred.endres@wooga.net
   --bintray-org=wooga; fi
@@ -41,4 +42,4 @@ env:
   global:
     - HOMEBREW_DEVELOPER="1"
     - TAP_BOTTLE_DOMAIN=https://dl.bintray.com/wooga
-    - secure: vFKfa1TyDsiI1+uXVcKdzoK2SM+EhaT+jqn1mhBnupwRPW95O6o1v+yKtHz5epYPVLpUnqYJXPMUSGY9/wNfgzVmGp4XXDE7wNJKl38EddCPhxEbyytV8DHRtcnCKQJ88KB0TRu66IQfRgFBvXbMvpdikc3JXTQ7DPsPOZCdansNTc9EIfHKnbFUztRlLVmFbRdv3OUZpUFp7CuxQKaE1pc9jRO0RkTM6o+pb0wfUPZPrc6VVhYnkHxqLwOfqb19L8rae/JlyHBwXlRRYqkAMFFMd1Bl8OZ+A/dZC3K1Ye4zcGsjlW27VYcdlSxKCujP5hDDfTr2ovpVOUyFO/Jllb0bHDhvM3Ka35jgFgApto1llXJ6oXFJaEC2qTpNSJEvZy4B0i9F0UCGyhu8zhetsNHF1WeecRY1hOS8fQ3iEFB+yIHj8Fr0isEZBWQKK6mEwoJrxGoi/p9q/Pj5gsAznPDFcR41y2OAB2A0ZR/W/B9e2q3/tPSayFjpZx4N09Hhuk1QCKII4wGynL2lzJGtOtKWIh1fq22tE2C1j06PNKR0zjahP0tOkNfgaTqA+gYDncZgtV3qdRuI9Hp6nw7hMM4ERB+/TshmF4TWQNWYcr2QnDPHmiAIOe//OpFRS9SO1RN58E+eVz1LnSPjf2IaQ91Uqgdz0u8cjr2pK/szmNM=
+    - secure: xgEhTFjarz6pJfAXBpdrT023j/R9AMs4crsM3nNXUes6j5WFdGypc2celvZQlO30cbKeserWmqPd6p776VrzHWKV98NNYSEkcMInUTKDm10x62u39H3oQpHiv7IvmRvLgCM3mrIyDcfGKeT12Nnaz8eyjh4HWTAT0FauBC4ys/pDN4krjf1VuEj1UrGZW4LgO0whz/mHCepVt2Nk7RZbPby5Tu7C9z81INsb8Yvkie+J9f1eR7/akSJ/nuBD7ydiL+Wl5yVpPl4XUubKuJiKSZzTSOL7X5mAdtVNf3Wc24kbexXm/fpUKEUSiWkYMWYs7JNEw6ngsFpcrYsgby7OpVORKdcbjQrqWcu9HKuWg8Y7lHI88nlr+/Sw9fbZEYr7sZDumazKsXof98mwkkL9koe0lxdLs2EF8ZTYZZOXS0dUNJFUW77pzdeSzmAeoHlGc+DscjTsNnBhW3d9TkD6cmsizzQZMc/oqYaaWmLR+ZdJ1YGWPh0QzQXbIUI/B8MU5/t1elKTLvZdNOLfIAqhONDf/3NyKe4iryI7rlCy75bgBKvYYfi+mQQTlSwx5s34NBzq4Qe3HxkQHjhj2mMdz9wDfr1cComCxK3CWnT5CbpMOiQvJQ2tXZRJSLuGgfvvo8XaEPYUYWMSbq2ekHIOWaCn8XR4EX1YwVpPMsyOc+I=
