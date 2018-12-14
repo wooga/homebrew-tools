@@ -1,29 +1,45 @@
 language: ruby
-os: osx
-env: OSX=10.12
-osx_image: xcode8.1
 rvm: system
-
+cache:
+  directories:
+  - "$HOME/.gem/ruby"
+  - Library/Homebrew/vendor/bundle
+os: osx
+matrix:
+  include:
+  - osx_image: xcode10.1
+    env: OSX=10.13
+  - osx_image: xcode9.1
+    env: OSX=10.12
+  - osx_image: xcode8
+    env: OSX=10.11
+osx_image: xcode8.1
 before_install:
-  - export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
-  - if [ -f ".git/shallow" ]; then
-      travis_retry git fetch --unshallow;
-    fi
-  - HOMEBREW_REPOSITORY="$(brew --repo)"
-  - sudo chown -R "$USER" "$HOMEBREW_REPOSITORY"
-  - git -C "$HOMEBREW_REPOSITORY" reset --hard origin/master
-  - brew update || brew update
-  - HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
-  - mkdir -p "$HOMEBREW_TAP_DIR"
-  - rm -rf "$HOMEBREW_TAP_DIR"
-  - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
-  - export HOMEBREW_DEVELOPER="1"
-  - ulimit -n 1024
-
+- export TRAVIS_COMMIT="$(git rev-parse --verify -q HEAD)"
+- if [ -f ".git/shallow" ]; then travis_retry git fetch --unshallow; fi
+- HOMEBREW_REPOSITORY="$(brew --repo)"
+- sudo chown -R "$USER" "$HOMEBREW_REPOSITORY"
+- git -C "$HOMEBREW_REPOSITORY" reset --hard origin/master
+- brew update || brew update
+- HOMEBREW_TAP_DIR="$(brew --repo "$TRAVIS_REPO_SLUG")"
+- mkdir -p "$HOMEBREW_TAP_DIR"
+- rm -rf "$HOMEBREW_TAP_DIR"
+- ln -s "$PWD" "$HOMEBREW_TAP_DIR"
+- ulimit -n 1024
 script:
-  - brew test-bot
-
+- brew tap davidchall/test-bot
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then brew test-bot --ci-testing; else brew
+  test-bot --ci-pr; fi
+after_success:
+- if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
+  brew update; brew test-bot --ci-upload --git-name=manfred.endres --git-email=manfred.endres@wooga.net
+  --bintray-org=wooga; fi
 notifications:
   email:
     on_success: never
     on_failure: always
+env:
+  global:
+    - HOMEBREW_DEVELOPER="1"
+    - TAP_BOTTLE_DOMAIN=https://dl.bintray.com/wooga
+    - secure: vFKfa1TyDsiI1+uXVcKdzoK2SM+EhaT+jqn1mhBnupwRPW95O6o1v+yKtHz5epYPVLpUnqYJXPMUSGY9/wNfgzVmGp4XXDE7wNJKl38EddCPhxEbyytV8DHRtcnCKQJ88KB0TRu66IQfRgFBvXbMvpdikc3JXTQ7DPsPOZCdansNTc9EIfHKnbFUztRlLVmFbRdv3OUZpUFp7CuxQKaE1pc9jRO0RkTM6o+pb0wfUPZPrc6VVhYnkHxqLwOfqb19L8rae/JlyHBwXlRRYqkAMFFMd1Bl8OZ+A/dZC3K1Ye4zcGsjlW27VYcdlSxKCujP5hDDfTr2ovpVOUyFO/Jllb0bHDhvM3Ka35jgFgApto1llXJ6oXFJaEC2qTpNSJEvZy4B0i9F0UCGyhu8zhetsNHF1WeecRY1hOS8fQ3iEFB+yIHj8Fr0isEZBWQKK6mEwoJrxGoi/p9q/Pj5gsAznPDFcR41y2OAB2A0ZR/W/B9e2q3/tPSayFjpZx4N09Hhuk1QCKII4wGynL2lzJGtOtKWIh1fq22tE2C1j06PNKR0zjahP0tOkNfgaTqA+gYDncZgtV3qdRuI9Hp6nw7hMM4ERB+/TshmF4TWQNWYcr2QnDPHmiAIOe//OpFRS9SO1RN58E+eVz1LnSPjf2IaQ91Uqgdz0u8cjr2pK/szmNM=
