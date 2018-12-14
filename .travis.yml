@@ -27,13 +27,11 @@ before_install:
 - ln -s "$PWD" "$HOMEBREW_TAP_DIR"
 - ulimit -n 1024
 script:
-- brew tap davidchall/test-bot
+- brew tap larusso/test-bot
 - brew test-bot --ci-auto
 after_success:
-
 - if [ "$TRAVIS_PULL_REQUEST" = "false" ] && [ "$TRAVIS_BRANCH" = "master" ]; then
-  brew update; brew test-bot --ci-upload --git-name=manfred.endres --git-email=manfred.endres@wooga.net
-  --bintray-org=wooga; fi
+  brew update; brew test-bot --ci-upload --git-name=manfred.endres --git-email=manfred.endres@wooga.net --bintray-org=wooga; fi
 notifications:
   email:
     on_success: never
