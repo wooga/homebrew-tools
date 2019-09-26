@@ -2,11 +2,11 @@ class UnityVersionManager < Formula
   desc "Tool that just manipulates a link to the current unity version"
   homepage "https://github.com/Larusso/unity-version-manager"
   head "https://github.com/Larusso/unity-version-manager.git"
-  version "2.2.0"
+  version "2.3.0"
 
   stable do
     url "https://github.com/Larusso/unity-version-manager/archive/v#{version}.tar.gz"
-    sha256 "321b0f6e9c85e53b4c7a3e03e751cc9e4ab946d4ee9e36aa8a39d1f180f1d621"
+    sha256 "4c34ce180a6bd9a8e678c3b886beda2ff9dc02e00539ee890283037d7e520a15"
   end
 
   depends_on "cmake" => :build
