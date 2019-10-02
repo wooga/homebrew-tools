@@ -6,7 +6,7 @@ class JenkinsMetrics < Formula
 
   stable do
     url "https://github.com/wooga/jenkins-metrics/archive/v#{version}.tar.gz"
-    sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+    sha256 "087e63389eaeb5b29c7d54fb257cced13631dddcd1f321c8f72428adcd5623f2"
   end
 
   depends_on "cmake" => :build
