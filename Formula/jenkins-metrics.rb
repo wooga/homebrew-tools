@@ -1,4 +1,4 @@
-class UnityVersionManager < Formula
+class JenkinsMetrics < Formula
   desc "A simple CLI tool to calculate basic Jenkins Job KPI's"
   homepage "https://github.com/wooga/jenkins-metrics"
   head "https://github.com/wooga/jenkins-metrics.git"
