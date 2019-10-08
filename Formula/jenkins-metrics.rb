@@ -2,11 +2,11 @@ class JenkinsMetrics < Formula
   desc "A simple CLI tool to calculate basic Jenkins Job KPI's"
   homepage "https://github.com/wooga/jenkins-metrics"
   head "https://github.com/wooga/jenkins-metrics.git"
-  version "0.1.0"
+  version "0.2.0"
 
   stable do
     url "https://github.com/wooga/jenkins-metrics/archive/v#{version}.tar.gz"
-    sha256 "087e63389eaeb5b29c7d54fb257cced13631dddcd1f321c8f72428adcd5623f2"
+    sha256 "3a45163390d94d4908997a3d636fa8a6ad96268b1561cfffc9119fac67678859"
   end
 
   depends_on "cmake" => :build
