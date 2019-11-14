@@ -6,15 +6,15 @@ cask 'fastlane' do
   name 'fastlane'
   homepage 'https://fastlane.tools/'
 
-  binary "#{staged_path}/fastlane_lib/fastlane"
+  binary "#{staged_path}/packaged-fastlane-custom_fix/bin/fastlane"
 
   installer script: {
-                      executable: "#{staged_path}/install",
-                      args:       ['-p', '-u', '-b'],
+                      executable: "#{staged_path}/packaged-fastlane-custom_fix/install",
+                      args:       ['-p', '-b'],
                     }
 
   uninstall script: {
-                      executable: "#{staged_path}/uninstall",
+                      executable: "#{staged_path}/packaged-fastlane-custom_fix/uninstall",
                       args:       ['-y'],
                     }
 
