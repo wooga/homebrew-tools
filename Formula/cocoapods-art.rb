@@ -1,5 +1,5 @@
 class CocoapodsArt < Formula
-  desc "Dependency manager for Cocoa projects"
+  desc "Dependency manager for Cocoa projects with jfrog art plugin included"
   homepage "https://cocoapods.org/"
   url "https://github.com/CocoaPods/CocoaPods/archive/1.11.2.tar.gz"
   sha256 "c1f7454a93e334484cc15ec8a88ded4080bf5e39df2b0dff729a2e77044dc3df"
