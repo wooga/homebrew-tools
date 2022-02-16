@@ -14,6 +14,7 @@ class CocoapodsArt < Formula
   bottle do
     rebuild 1
     sha256 big_sur: "4be971005bbd070101ffcacac7d8b1c5cca642629b5a043140bf74029def0ab1"
+    sha256 monterey: "797cbb6113cce2680702b72e20573fad91aaaca83d2db7be24dbc00797603d2d"
   end
 
   depends_on "pkg-config" => :build
